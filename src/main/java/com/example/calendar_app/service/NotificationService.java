@@ -29,6 +29,8 @@ public class NotificationService {
                 LocalDateTime now = LocalDateTime.now();
                 LocalDateTime notificationTime = event.getStartTime().minus(event.getNotificationTime());
 
+                System.out.println("현재 시간: " + now + " 알림 시간: " + notificationTime);
+
                 if (now.isAfter(notificationTime) && now.isBefore(event.getStartTime())) {
                     sendEmailNotification(event);
                 }
